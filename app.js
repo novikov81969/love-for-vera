@@ -4,8 +4,8 @@
   const TAU = Math.PI * 2;
 
   const DEFAULTS = {
-    name: "любимая!",
-    finalTitle: "С Днём Рождения,",
+    name: "Любимая!",
+    finalTitle: "С Днём Рождения",
     particles: {
       desktop: 2600,
       tablet: 2000,
@@ -213,7 +213,7 @@
 
   function makeSprite(color, star) {
     const sprite = document.createElement("canvas");
-    const size = star ? 96 : 64;
+    const size = star ? 144 : 80;
     const center = size / 2;
     sprite.width = size;
     sprite.height = size;
@@ -221,16 +221,26 @@
     const { r, g, b } = color;
     const glow = spriteCtx.createRadialGradient(center, center, 0, center, center, center);
     glow.addColorStop(0, "rgba(255,255,255,1)");
-    glow.addColorStop(0.07, `rgba(${r},${g},${b},0.98)`);
-    glow.addColorStop(0.18, `rgba(${r},${g},${b},0.72)`);
-    glow.addColorStop(0.38, `rgba(${r},${g},${b},0.24)`);
-    glow.addColorStop(0.68, `rgba(${r},${g},${b},0.06)`);
+    glow.addColorStop(0.08, `rgba(${r},${g},${b},0.98)`);
+    glow.addColorStop(0.2, `rgba(${r},${g},${b},0.62)`);
+    glow.addColorStop(0.34, `rgba(${r},${g},${b},0.28)`);
+    glow.addColorStop(0.58, `rgba(${r},${g},${b},0.09)`);
+    glow.addColorStop(0.82, `rgba(${r},${g},${b},0.02)`);
     glow.addColorStop(1, `rgba(${r},${g},${b},0)`);
     spriteCtx.fillStyle = glow;
     spriteCtx.fillRect(0, 0, size, size);
 
+    const core = spriteCtx.createRadialGradient(center, center, 0, center, center, size * 0.038);
+    core.addColorStop(0, "rgba(255,255,255,1)");
+    core.addColorStop(0.5, "rgba(255,255,255,0.9)");
+    core.addColorStop(1, "rgba(255,255,255,0)");
+    spriteCtx.fillStyle = core;
+    spriteCtx.fillRect(0, 0, size, size);
+
     if (star) {
       spriteCtx.globalCompositeOperation = "lighter";
+      const thickness = size * 0.0146;
+      const halfThickness = thickness / 2;
       const horizontal = spriteCtx.createLinearGradient(0, center, size, center);
       horizontal.addColorStop(0, `rgba(${r},${g},${b},0)`);
       horizontal.addColorStop(0.34, `rgba(${r},${g},${b},0.25)`);
@@ -238,7 +248,7 @@
       horizontal.addColorStop(0.66, `rgba(${r},${g},${b},0.25)`);
       horizontal.addColorStop(1, `rgba(${r},${g},${b},0)`);
       spriteCtx.fillStyle = horizontal;
-      spriteCtx.fillRect(0, center - 0.7, size, 1.4);
+      spriteCtx.fillRect(0, center - halfThickness, size, thickness);
 
       const vertical = spriteCtx.createLinearGradient(center, 0, center, size);
       vertical.addColorStop(0, `rgba(${r},${g},${b},0)`);
@@ -247,7 +257,7 @@
       vertical.addColorStop(0.66, `rgba(${r},${g},${b},0.25)`);
       vertical.addColorStop(1, `rgba(${r},${g},${b},0)`);
       spriteCtx.fillStyle = vertical;
-      spriteCtx.fillRect(center - 0.7, 0, 1.4, size);
+      spriteCtx.fillRect(center - halfThickness, 0, thickness, size);
     }
 
     return sprite;
@@ -460,7 +470,7 @@
   }
 
   function preferredDpr(width) {
-    return Math.min(window.devicePixelRatio || 1, width < 720 ? 3 : 2);
+    return Math.min(window.devicePixelRatio || 1, width < 720 ? 4 : 2);
   }
 
   function resizeCanvas() {
@@ -882,7 +892,7 @@
     );
 
     dedication.style.left = `${layout.x}px`;
-    dedication.style.top = `${layout.y - layout.height * 0.045}px`;
+    dedication.style.top = `${layout.y - layout.height * 0.065}px`;
     dedication.style.width = `${Math.min(state.w * 0.92, layout.width * 0.92)}px`;
     dedication.style.setProperty("--heart-width", `${layout.width}px`);
     dedicationLead.style.fontSize = `${leadSize}px`;
