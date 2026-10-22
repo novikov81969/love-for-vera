@@ -459,12 +459,16 @@
     }
   }
 
+  function preferredDpr(width) {
+    return Math.min(window.devicePixelRatio || 1, width < 720 ? 3 : 2);
+  }
+
   function resizeCanvas() {
     const oldW = state.w;
     const oldH = state.h;
     const width = Math.max(1, window.innerWidth);
     const height = Math.max(1, window.innerHeight);
-    const dpr = Math.min(window.devicePixelRatio || 1, width < 720 ? 1.75 : 2);
+    const dpr = preferredDpr(width);
 
     state.w = width;
     state.h = height;
@@ -584,7 +588,7 @@
     if (!codeRainCanvas || !codeRainCtx) return;
 
     const settings = rainSettings();
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(preferredDpr(state.w), 2);
     rain.dpr = dpr;
     rain.fontSize = Math.max(
       10,
