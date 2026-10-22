@@ -878,7 +878,7 @@
     );
 
     dedication.style.left = `${layout.x}px`;
-    dedication.style.top = `${layout.y - layout.height * 0.012}px`;
+    dedication.style.top = `${layout.y - layout.height * 0.045}px`;
     dedication.style.width = `${Math.min(state.w * 0.92, layout.width * 0.92)}px`;
     dedication.style.setProperty("--heart-width", `${layout.width}px`);
     dedicationLead.style.fontSize = `${leadSize}px`;
