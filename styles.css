@@ -171,11 +171,11 @@ body.is-ready .experience {
 .dedication__lead {
   margin: 0 0 0.16em;
   color: rgba(255, 240, 248, 0.94);
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Pacifico", cursive;
   font-size: calc(var(--heart-width, 600px) * 0.071);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 0.16em;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.005em;
   text-shadow:
     0 0 8px rgba(255, 170, 212, 0.42),
     0 0 26px rgba(255, 78, 161, 0.28);
@@ -184,12 +184,12 @@ body.is-ready .experience {
 .dedication__name {
   margin: 0;
   padding: 0.02em 0 0.14em;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-family: "Pacifico", cursive;
   font-size: calc(var(--heart-width, 600px) * 0.148);
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.005em;
+  line-height: 1.04;
+  letter-spacing: 0;
   background: linear-gradient(102deg, #fff4fa 0%, #ffd8eb 22%, #ff9dd0 51%, #ff63b2 76%, #ffd7ec 100%);
   -webkit-background-clip: text;
   background-clip: text;
