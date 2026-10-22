@@ -4,8 +4,8 @@
   const TAU = Math.PI * 2;
 
   const DEFAULTS = {
-    name: "Verochka",
-    finalTitle: "I Love You,",
+    name: "любимая!",
+    finalTitle: "С Днём Рождения,",
     particles: {
       desktop: 2600,
       tablet: 2000,
@@ -76,9 +76,9 @@
     sequence: {
       intro: 4.2,
       words: [
-        { text: "3", form: 0.95, hold: 0.6, dissolve: 0.5, countdown: true },
-        { text: "2", form: 0.95, hold: 0.6, dissolve: 0.5, countdown: true },
-        { text: "1", form: 0.95, hold: 0.6, dissolve: 0.5, countdown: true },
+        { text: "3", form: 1.0, hold: 1.25, dissolve: 0.65, countdown: true },
+        { text: "2", form: 1.0, hold: 1.25, dissolve: 0.65, countdown: true },
+        { text: "1", form: 1.0, hold: 1.25, dissolve: 0.65, countdown: true },
         { text: "You", form: 2.3, hold: 1.4, dissolve: 1.0 },
         { text: "Are", form: 2.0, hold: 1.1, dissolve: 1.0 },
         { text: "My", form: 1.9, hold: 1.0, dissolve: 1.0 },
