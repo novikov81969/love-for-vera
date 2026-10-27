@@ -455,19 +455,3 @@ body.is-fullscreen .icon-exit {
   }
 }
 
-.dedication-burst {
-  position: fixed;
-  inset: 0;
-  z-index: 6;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.dedication.is-visible.is-dissolving {
-  opacity: 0;
-  filter: blur(4px);
-  transition:
-    opacity 0.16s ease,
-    filter 0.16s ease;
-}

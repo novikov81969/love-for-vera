@@ -705,7 +705,7 @@
         navigated = true;
         fade.classList.add("is-on");
         window.setTimeout(function () {
-          window.location.href = "letter.html?v=3";
+          window.location.href = "letter.html?v=4";
         }, 520);
       }
     }
