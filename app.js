@@ -1680,20 +1680,28 @@
 
   let lastFrameTime = performance.now();
   let firstFrame = true;
+  let frameErrorLogged = false;
 
   function frame(now) {
+    requestAnimationFrame(frame);
+
     const delta = Math.min(Math.max((now - lastFrameTime) / 1000, 0), 0.05);
     lastFrameTime = now;
 
-    update(delta);
-    render();
+    try {
+      update(delta);
+      render();
+    } catch (error) {
+      if (!frameErrorLogged) {
+        frameErrorLogged = true;
+        console.error("Animation frame failed:", error);
+      }
+    }
 
     if (firstFrame) {
       firstFrame = false;
       requestAnimationFrame(() => body.classList.add("is-ready"));
     }
-
-    requestAnimationFrame(frame);
   }
 
   function initEvents() {
