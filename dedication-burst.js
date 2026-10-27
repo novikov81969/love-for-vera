@@ -199,7 +199,9 @@
     particles = [];
     ctx.clearRect(0, 0, W, H);
     dissolving = false;
-    dedication.classList.remove("is-dissolving");
+    if (dedication.classList.contains("is-dissolving")) {
+      dedication.classList.remove("is-dissolving");
+    }
   }
 
   function onPointerDown(event) {
